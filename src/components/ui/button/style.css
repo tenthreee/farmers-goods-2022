@@ -1,0 +1,25 @@
+.button {
+  min-height: 60px;
+  min-width: 260px;
+
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: 700;
+  text-align: center;
+  color: white;
+  background-color: #fc9b27;
+  border: none;
+  box-shadow: none;
+
+  transition: background-color 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.button:hover,
+.button:active {
+  background-color: #fc7427;
+  box-shadow: inset 0px 4px 0px rgba(0, 0, 0, 0.14);
+}
+
+.button:active {
+  box-shadow: none;
+}
