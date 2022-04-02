@@ -1,26 +1,29 @@
 import React from "react";
-import Title from "/src/components/ui/title/title";
+import Title, { TitleLevel } from "/src/components/ui/title/title";
 import FeatureCard from "/src/components/ui/feature-card/feature-card";
 import Button from "/src/components/ui/button/button";
-import "./style.css";
+import { StyledSection, FeaturesUl } from "./styles";
 
-function FeaturesList({ features }) {
+// Список преимуществ
+function FeaturesList({
+  features // массив объектов с id, label, title, description, image, isNegative
+}) {
   return (
-    <section className="features">
+    <StyledSection>
       {features && features.length ? (
         <>
-          <Title>Почему фермерские продукты лучше?</Title>
-          <ul className="features__list">
+          <Title level={TitleLevel.H2}>Почему фермерские продукты лучше?</Title>
+          <FeaturesUl>
             {features.map((feature) => (
-              <li className="features__item" key={feature.id}>
+              <li key={feature.id}>
                 <FeatureCard {...feature} />
               </li>
             ))}
-          </ul>
+          </FeaturesUl>
           <Button minWidth={260}>Купить</Button>
         </>
       ) : null}
-    </section>
+    </StyledSection>
   );
 }
 

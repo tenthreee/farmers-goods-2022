@@ -1,12 +1,8 @@
 import React from "react";
-import "./style.css";
+import { StyledButton } from "./styles";
 
 function Button({ children }) {
-  return (
-    <button type="button" className="button">
-      {children}
-    </button>
-  );
+  return <StyledButton type="button">{children}</StyledButton>;
 }
 
 export default Button;

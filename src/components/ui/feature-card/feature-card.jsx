@@ -1,31 +1,34 @@
 import React from "react";
-import Title, { TitleSize } from "/src/components/ui/title/title";
-import FeatureLabel from "/src/components/ui/feature-label/feature-label";
-import "./style.css";
+import Title, { TitleSize, TitleLevel } from "/src/components/ui/title/title";
+import {
+  Feature,
+  FeatureWrapper,
+  FeatureIcon,
+  StyledLabel,
+  FeatureDesctiption
+} from "./styles";
 
-function FeatureCard({ label, title, description, icon, isNegative }) {
+// Карточка
+function FeatureCard({
+  label, // Лейбл особенности
+  title, // Название особенности
+  description, // Описание особенности
+  icon, // Иконка
+  isNegative // Является ли особенность отрицательной
+}) {
   return (
-    <article
-      className={`feature-card${isNegative ? " feature-card--negative" : ""}`}
-    >
-      <div className="feature-card__wrapper">
-        <img
-          className="feature-card__icon"
-          src={icon}
-          alt=""
-          width={48}
-          height={52}
-        />
+    <Feature isNegative={isNegative}>
+      <FeatureWrapper>
+        <FeatureIcon src={icon} alt="" width={48} height={52} />
         <div>
-          <FeatureLabel className="feature-card__label" label={label} />
-          <Title size={TitleSize.SMALL}>{title}</Title>
+          <StyledLabel isNegative={isNegative}>{label}</StyledLabel>
+          <Title level={TitleLevel.H3} size={TitleSize.SMALL}>
+            {title}
+          </Title>
         </div>
-      </div>
-      <p
-        className="feature-card__description"
-        dangerouslySetInnerHTML={{ __html: description }}
-      />
-    </article>
+      </FeatureWrapper>
+      <FeatureDesctiption dangerouslySetInnerHTML={{ __html: description }} />
+    </Feature>
   );
 }
 
